@@ -1,4 +1,4 @@
-package maria.anikina.model;
+package maria.anikina;
 
 import maria.anikina.model.Student;
 import org.springframework.beans.BeansException;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 
-@Component
 public class BeanPostProcessorImpl implements BeanPostProcessor {
 
 
@@ -21,12 +20,16 @@ public class BeanPostProcessorImpl implements BeanPostProcessor {
 		if (bean instanceof Student) {
 			Student student = (Student) bean;
 			if (student.getFullName().equals("Jil")) {
-				student.setAssessments(new HashMap<>());
-//				student.getAssessments().put("Математика", 5);
-//				student.getAssessments().put("Русский язык", 5);
-				student.getAssessments().put("Живопись", 5);
+				for (String subject : student.getAssessments().keySet()) {
+					student.getAssessments().put(subject, 5);
+				}
 			}
 		}
+		return bean;
+	}
+
+	@Override
+	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 		return bean;
 	}
 }

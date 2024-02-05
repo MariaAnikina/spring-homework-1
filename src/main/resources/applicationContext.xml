@@ -46,6 +46,6 @@
     </bean>
 
     <bean id="beanPostProcessorBeanImplBean"
-          class="maria.anikina.model.BeanPostProcessorImpl">
+          class="maria.anikina.BeanPostProcessorImpl">
     </bean>
 </beans>

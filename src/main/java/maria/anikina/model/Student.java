@@ -10,7 +10,7 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Student extends BeanPostProcessorImpl {
+public class Student {
 	private String fullName;
 	private Map<String, Integer> assessments;
 	private boolean enrolled;

@@ -1,5 +1,6 @@
 package maria.anikina;
 
+import maria.anikina.config.ConfigFile;
 import maria.anikina.model.Student;
 import maria.anikina.model.Teacher;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -7,19 +8,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Test1 {
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		AnnotationConfigApplicationContext context2 = new AnnotationConfigApplicationContext(Config.class);
+		ClassPathXmlApplicationContext contextXml = new ClassPathXmlApplicationContext("applicationContext.xml");
+		AnnotationConfigApplicationContext contextJava = new AnnotationConfigApplicationContext(ConfigFile.class);
 
-
-		Teacher teacher1 = context.getBean("teacherBean", Teacher.class);
+		Teacher teacher1 = contextXml.getBean("teacherBean", Teacher.class);
 		getStudents(teacher1);
-		Teacher teacher2 = context2.getBean("teacherBean", Teacher.class);
+		Teacher teacher2 = contextJava.getBean("teacherBean", Teacher.class);
 		getStudents(teacher2);
 
-		Student student2 = context.getBean("student2", Student.class);
-		System.out.println(student2);
-		context.close();
-		context2.close();
+		contextXml.close();
+		contextJava.close();
 	}
 
 	private static void getStudents(Teacher teacher) {

@@ -1,6 +1,6 @@
-package maria.anikina;
+package maria.anikina.config;
 
-import maria.anikina.model.BeanPostProcessorImpl;
+import maria.anikina.BeanPostProcessorImpl;
 import maria.anikina.model.Student;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +12,7 @@ import java.util.Map;
 
 @Configuration
 @ComponentScan("maria.anikina.model")
-public class Config {
+public class ConfigFile {
 	@Bean
 	public Student studentBean1() {
 		Map<String, Integer> assessments = new HashMap<>();
