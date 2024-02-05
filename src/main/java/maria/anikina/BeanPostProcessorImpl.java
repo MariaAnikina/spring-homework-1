@@ -2,15 +2,7 @@ package maria.anikina;
 
 import maria.anikina.model.Student;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Role;
-import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
 
 public class BeanPostProcessorImpl implements BeanPostProcessor {
 
